@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>명우니닷컴 :: Hello, Myeonguni.com</title>
+<!-- bootstrap css -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- index css -->
+<link rel="Stylesheet" href="./resource/css/myeonguni.css" />
+<!-- jquery js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- index script -->
+<script src="./resource/js/myeonguni.js"></script>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+	<!-- 마우스 커서 -->
+	<p class="cursor" style="position: absolute; top: 500; z-index: 2;">페이지에 낙서를 남겨주세요 ♥</p>
+
+	<!-- 그림판 및 브라우저 미지원 문구 -->
+	<header>
+		<!-- 그림판 -->
+		<canvas id="canvas" style="z-index: 1;">
+			<!-- 브라우저가 canvas 태그를 지원하지 않을 경우 표시-->
+			<div class="text-center">
+				<script>document.write("접속하신 " + isBrowserCheck() + " 브라우저는 실시간 그림판을 지원하지 않습니다. 최신 브라우저로 업데이트 해주세요");</script>
+				<br><a href="http://windows.microsoft.com/ko-kr/internet-explorer/download-ie">최신 버전으로 업데이트 하기(클릭)</a><br><br>
+			</div>
+		</canvas>
+	</header>
+
+	<!-- 메인 콘텐츠 -->
+	<section>
+		<!-- 메인 문구 -->
+		<div class="content1">
+			<div class="text-center" style="width: 650px;">
+				<h1 class="sitetit">
+					<span>Student Developer</span> <strong>Ryu Myeong-un</strong>
+				</h1>
+			</div>
+		</div>
+		<!-- 메뉴별 이미지(아이콘) 및 문구 -->
+		<div class="content2">
+			<div class="text-center" style="width: 360px;">
+				<div class="nav-sns">
+					<a href="http://myeonguni.tistory.com" target="_blank" title="류명운의 티스토리 블로그 바로가기">
+						<i class="ico ico-tistory"></i>Blog
+					</a>
+					<a href="https://github.com/myeonguni" target="_blank" title="류명운의 GitHub 바로가기">
+						<i class="ico ico-github"></i>GitHub
+					</a>
+					<a href="https://www.facebook.com/myeongunRyu" target="_blank" title="류명운의 Facebook 바로가기">
+						<i class="ico ico-facebook"></i>Sns
+					</a>
+					<a href="#" data-toggle="modal" data-target="#profileModal" title="류명운의 프로필 바로가기">
+						<i class="ico ico-profile"></i>Profile
+					</a>
+					<a href="#" data-toggle="modal" data-target="#projectModal" title="류명운의 포트폴리오 바로가기">
+						<i class="ico ico-portfolio"></i>Project
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- 서브 문구1 -->
+		<div class="content3">
+			<div class="text-center" style="width: 440px;">
+				<address class="copyr">"I can do everything through him who gives me strength - Phi4:13"</address>
+			</div>
+		</div>
+		<!-- 서브 문구2 -->
+		<div class="content4">
+			<div class="text-center" style="width: 300px;">
+				<address class="copyr">© Copyright Ryu Myeong-un all right reserved.</address>
+			</div>
+		</div>
+	</section>
+	
+	<!-- 하단 콘텐츠 -->
+	<footer>
+		<!-- CANVAS 관련 설정 -->
+		<div class="footer">
+			<div class="text-center">
+				<!-- 그리기 도구 : 펜 -->
+				<button type="button" class="btn btn-default btn-sm" id="pencil">
+					<span class="glyphicon glyphicon-pencil"></span> Pencil
+				</button>
+				<!-- 그리기 도구 : 지우개 -->
+				<button type="button" class="btn btn-default btn-sm" id="eraser">
+					<span class="glyphicon glyphicon-erase"></span> Eraser
+				</button>
+				<!-- 그리기 도구 : 사이즈 -->
+				<button type="button" class="btn btn-default btn-sm" id="size">
+					<span class="glyphicon glyphicon-plus-sign"></span> Size
+				</button>
+				<!-- 그리기 도구 : CANVAS 초기화 -->
+				<button type="button" class="btn btn-default btn-sm" id="refresh">
+					<span class="glyphicon glyphicon-refresh"></span> Refresh
+				</button>
+				<!-- CANVAS 이미지 파일로 저장 -->
+				<a id="download">
+					<button type="button" class="btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-download-alt"></span> Download
+					</button>
+				</a>
+			</div>
+			<!-- 그리기 도구 : 팔레트 색상 설정 -->
+			<div class="text-center" style="margin-top: 5px;">
+				<input type="button" alt="흑" class="color" style="background-color: #000000;" />
+				<input type="button" alt="회" class="color" style="background-color: #CCCCCC;" />
+				<input type="button" alt="흰" class="color" style="background-color: #FFFFFF;" />
+				<input type="button" alt="빨" class="color" style="background-color: #ff0000;" />
+				<input type="button" alt="주" class="color" style="background-color: #FF7F00;" />
+				<input type="button" alt="노" class="color" style="background-color: #FFFF00;" />
+				<input type="button" alt="초" class="color" style="background-color: #009900;" />
+				<input type="button" alt="파" class="color" style="background-color: #0099FF;" />
+				<input type="button" alt="남" class="color" style="background-color: #082567;" />
+				<input type="button" alt="보" class="color" style="background-color: #8000FF;" />
+				<input type="button" alt="핑" class="color" style="background-color: #FF7493;" />
+				<input type="button" alt="핑" class="color" style="background-color: #abeda6;" />
+				<input type="button" alt="핑" class="color" style="background-color: #b4dec1;" />
+				<input type="button" alt="핑" class="color" style="background-color: #CD426B;" />
+			</div>
+			<!-- 하단 문구 -->
+			<div class="text-center" style="margin-top: 5px;">
+				<p style="color: #ff0000;">node.js(+websocket)를 이용한 실시간 웹 그림판 입니다. 낙서를 남겨주세요~ㅎㅎ</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- PROFILE(이력서) Modal -->
+	<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModal" aria-hidden="true">
+		<div class="modal-dialog" id="profile" style="width: 720px;">
+			<div class="modal-content">
+				<!-- PROFILE Modal : 상단 -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">
+						<span class="glyphicon glyphicon-user"></span> Myeong-un Ryu
+					</h4>
+				</div>
+				<!-- PROFILE Modal : 본문(이력서) -->
+				<div class="modal-body">
+					<iframe src="./profile.html" width="100%" height="1510px" style="border:none;"></iframe>
+				</div>
+				<!-- PROFILE Modal : 하단(닫기버튼) -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- PROJECT(프로젝트) Modal -->
+	<div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModal" aria-hidden="true">
+		<div class="modal-dialog" id="project" style="width: 720px;">
+			<div class="modal-content">
+				<!-- PROJECT Modal : 상단 -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">
+						<span class="glyphicon glyphicon-plus"></span> Project
+					</h4>
+				</div>
+				<!-- PROJECT Modal : 본문(프로젝트) -->
+				<div class="modal-body">
+					<iframe src="./project.html" width="100%" height="545px" style="border:none;"></iframe>
+				</div>
+				<!-- PROJECT Modal : 하단(닫기버튼) -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- PROJECT LIST CHOICE(프로젝트 리스트 선택) Modal -->
+	<div class="modal fade" id="projectChoiceModal" tabindex="-1" role="dialog" aria-labelledby="projectChoiceModal" aria-hidden="true">
+		<div class="modal-dialog" id="projectChoice" style="width: 600px;">
+			<div class="modal-content">
+				<!-- Project List CHOICE Modal : 상단 -->
+				<div class="modal-header" id="projectChoiceModalLabel">
+					<!-- 프로젝트 타이틀 -->
+				</div>
+				<!-- Project List CHOICE Modal : 본문 -->
+				<div class="modal-body" id="projectChoiceModalImage">
+					<!-- 프로젝트 이미지 -->
+				</div>
+				<!-- Project List CHOICE Modal : 하단 -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

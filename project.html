@@ -1,0 +1,109 @@
+
+<!-- bootstrap css -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- jquery js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!-- bootstrap js -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Project List Table -->
+<table class="table table-hover" style="font-size:12px; margin:0 0;">
+	<thread>
+		<tr style="color:black; background-color:#fcf8e3;">
+			<th>프로젝트</th>
+			<th>키워드</th>
+			<th>설명</th>
+		</tr>
+	</thread>
+	<tbody>
+		<tr>
+			<td><a onClick="projectModalOpen('KaKao ChatBot', '1')"> #KaKao ChatBot</a></td>
+			<td> 맞춤법 검사, 이미지 파싱, AWS EC2</td>
+			<td> 카카오톡 옐로아이디 챗봇</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('StaffMng', '2')"> #StaffMng</a></td>
+			<td> 웹앱, JSP MVC Pattern, OracleDB</td>
+			<td> 직원 관리 사이트</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('Spin Korea', '3')"> #Spin Korea</a></td>
+			<td> 이미지 360˚ 컨텐츠, 웹앱</td>
+			<td> 이미지 360˚ 컨텐츠 제작 웹 어플리케이션</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('ATMSim', '4')"> #ATMSim</a></td>
+			<td> 비정상트래픽, 하둡, 자바, 논문</td>
+			<td> 하둡 기반 비정상 트래픽 측정 및 분석 패키지</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('Myeonguni.com', '5')"> #Myeonguni.com</a></td>
+			<td> 이력서, 프로젝트, 실시간 그림판, 웹앱</td>
+			<td> 개인 포트폴리오 홈페이지</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('BibleInfo', '6')"> #BibleInfo</a></td>
+			<td> 공공데이터, 버스정류장 정보, 웹앱</td>
+			<td> 실시간 성서대 버스정류소 정보 제공 사이트</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('ElanciaVollyBall', '7')"> #ElanciaVollyBall</a></td>
+			<td> 게임, 자바 다중 스레드, 자바 스윙</td>
+			<td> 자바 스윙 기반 배구게임</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('Keylog', '8')"> #Keylog</a></td>
+			<td> 모의 해킹, 자바, JNI(C++)</td>
+			<td> 자바 기반 키로그 모의 해킹 프로그램</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('MultiCopy', '9')"> #MultiCopy</a></td>
+			<td> 자바, JNI(C++), Robot, Clipboard</td>
+			<td> 자바 기반 키로그 모의 해킹 프로그램</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('IsYouChat', '10')"> #IsYouChat</a></td>
+			<td> 웹앱, Node.js, 암호화, 실시간 채팅</td>
+			<td> 실시간 보안 채팅 웹 어플리케이션</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('PacketFlooder', '11')"> #PacketFlooder</a></td>
+			<td> DOS Attack, SYN/UDP Flooder, Jpcap(+pcap)</td>
+			<td> 자바 기반 패킷 모의 공격 프로그램</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('PianoChat', '12')"> #PianoChat</a></td>
+			<td> 자바 네트워크, 프로토콜, 콘솔</td>
+			<td> 자바 동일 네트워크 기반 랜덤 콘솔 채팅 프로그램</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('SmartFeel', '13')"> #SmartFeel</a></td>
+			<td> 스마트폰 중독 및 질병, 안드로이드, 논문</td>
+			<td> 스마트폰 중독 및 질병 예방 시스템</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('KBU View', '14')"> #KBU View</a></td>
+			<td> 이미지 360˚ 로드 뷰, FFmpeg</td>
+			<td> 한국성서대 내부 로드 뷰 사이트</td>
+		</tr>
+		<tr>
+			<td><a onClick="projectModalOpen('PO성서WER', '15')"> #PO성서WER</a></td>
+			<td> 성경졸업 모의고사, C# Windows</td>
+			<td> 씨샵 기반 성경졸업 모의고사 프로그램</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- 스크립트 -->
+<script>
+	/* 선택된 프로젝트 모달 오픈 */
+	function projectModalOpen(title, index) {
+		/* 현재 페이지를 호출한(iframe) 부모의 모달 내용 설정 및 오픈 */
+		parent.document.getElementById("projectChoiceModalLabel").innerHTML = "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h4 class='modal-title'><span class='glyphicon glyphicon-plus'></span> #" + title + "</h4>";
+		parent.document.getElementById("projectChoiceModalImage").innerHTML = "<img src='./resource/img/project/" + index + ".PNG' style='width:560px'/>";
+		$('#projectChoiceModal', parent.document).modal();
+	}
+</script>
+
+
+				
